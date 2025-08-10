@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votación Club de Lectura</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+    <script id="csv-data" type="text/csv">
+        titulo,autor,user,goodreads_url,goodreads_image_url,goodreads_rating,goodreads_number_of_pages,goodreads_synopsis,goodreads_genres
+Hyperion,Dan Simmons,Peinacabras,https://www.goodreads.com/book/show/3938.Hyperion,https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1348672001i/3938.jpg,4.27,618,"En el mundo llamado Hyperion, más allá de la Red de la Hegemonía del hombre, aguarda el Alcaudón, una singular y temible criatura a la que los miembros de la Iglesia de la Expiación Final veneran como Señor del Dolor. En vísperas del Armageddon y bajo la amenaza de una guerra entre la Hegemonía, los enjambres éxter y las inteligencias artificiales del TecnoNúcleo, siete peregrinos acuden a Hyperion para recuperar un rito religioso. Todos son portadores de esperanzas imposibles y también de terri","Science Fiction, Fiction, Fantasy, Space Opera, Audiobook"
+Huevo del dragon,Robert L. Forward,Peinacabras,https://www.goodreads.com/book/show/11943524-huevo-del-drag-n?ref=nav_sb_ss_1_16,https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1346317926i/11943524.jpg,4.12,323,"Robert L. Forward será recordado como uno de los autores más característicos de la ciencia ficción dura. Sus novelas de la saga de los Cheela, donde especula sobre las formas de vida que habitan una estrella de neutrones, han sido comparadas por su combinación de amenidad y rigor científico con Misión de gravedad de Hal Clement. Él mismo dijo de ellas: ""Son un libro de texto de física de las estrellas de neutrones, disfrazado de novela"". Huevo del dragón es la primera parte de la citada saga. Bu","Science Fiction, Fiction, Aliens, Fantasy, Hard Science Fiction"
+El despertar del leviatán,James S.A. Corey,Peinacabras,https://www.goodreads.com/book/show/32023743-el-despertar-de-leviat-n,https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1475139754i/32023743.jpg,4.31,608,"La humanidad ha colonizado el Sistema Solar, pero las estrellas aún están fuera de nuestro alcance. Jim Holden es OE de un transportador de hielo. Cuando él y su tripulación topan con una nave abandonada, descubren un secreto que desearían no haber encontrado. Un secreto por el que alguien sería capaz de matar. La guerra en el Sistema Solar está a punto de comenzar, a menos que sean capaces de descubrir quién abandonó esa nave y por qué. El inspector Miller busca a una chica entre mil millones, ","Science Fiction, Fiction, Audiobook, Fantasy, Space"
+1Q84,Haruki Murakami,Peinacabras,https://www.goodreads.com/book/show/15843596,https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1491172833i/15843596.jpg,4.08,936,"En japonés, la letra q y el número 9 son homófonos, los dos se pronuncian kyu, de manera que 1Q84 es, sin serlo, 1984, una fecha de ecos orwellianos. Esa variación en la grafía refleja la sutil alteración del mundo en que habitan los personajes de esta novela, que es, también sin serlo, el Japón de 1984. En ese mundo en apariencia normal y reconocible se mueven Aomame, una mujer independiente, instructora en un gimnasio, y Tengo, un profesor de matemáticas. Ambos rondan los treinta años, ambos l","Fiction, Fantasy, Japan, Japanese Literature, Magical Realism"
+El conde de Montecristo,Alejandro Dumas,Peinacabras,https://www.goodreads.com/book/show/27411495-el-conde-de-montecristo,https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1446446048i/27411495.jpg,4.32,1144,"El conde de Montecristo es uno de los clásicos más populares de todos los tiempos. Desde su publicación, en 1844, no ha dejado de seducir al gran público con la inolvidable historia de su protagonista. Edmond Dantés es un joven marinero, honrado y cándido, que lleva una existencia tranquila. Quiere casarse con la hermosa Mercedes, pero su vida se verá arruinada cuando su mejor amigo, Ferdinand, deseoso de conquistar a su prometida, le traicione vilmente. Condenado a cumplir una condena que no me","Classics, Fiction, Historical Fiction, Adventure, Literature"
+Paloma solitaria,Larry McMurtry,RolandDes,https://www.goodreads.com/book/show/166907,https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1327596966i/166907.jpg,4.56,832,"Una historia de amor, una aventura y una epopeya de la frontera, el clásico de Larry McMurtry ganador del premio Pulitzer, Lonesome Dove , el tercer libro de la tetralogía Lonesome Dove , es la novela más grandiosa jamás escrita sobre el último desierto desafiante de Estados Unidos. Viaja al pequeño y polvoriento pueblo texano de Lonesome Dove y conoce una inolvidable variedad de héroes y forajidos, prostitutas y damas, indios y colonos. Rica en autenticidad, bellamente escrita, siempre dramátic","Fiction, Historical Fiction, Westerns, Classics, Historical"
+Warlock,Oakley Hall,RolandDes,https://www.goodreads.com/book/show/6529018,https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1291756162i/6529018.jpg,4.29,700,"Agosto de 1880. La canícula y la densa neblina desdibujan los contornos de la ciudad fronteriza de Warlock,un lugar huérfano de ley donde el robo, las reyertas y elcrimen están a la orden del día. El puesto de ayudante del sheriff pesa como una maldición sobre quien se atreve a ocuparlo; pocos tienen el valor de intervenir enlas trifulcas entre mineros borrachos y fulleros, y menos aún de enfrentarse a la banda de cuatreros liderada por Abe McQuown. Pero un nuevo pistolero ha llegado a la ciudad","Westerns, Fiction, Historical Fiction, Classics, Novels"
+La verdad sobre el caso de Harry Quebert,Joël Dicker,RolandDes,https://www.goodreads.com/book/show/18068486-la-verdad-sobre-el-caso-harry-quebert,https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1370971227i/18068486.jpg,4.2,672,"Quién mató a Nola Kellergan es la gran incógnita a desvelar en este thriller incomparable cuya experiencia de lectura escapa a cualquier intento de descripción. Intentémoslo: una gran novela policiaca y romántica a tres tiempos —1975, 1998 y 2008— acerca del asesinato de una joven de quince años en la pequeña ciudad de Aurora, en New Hampshire. En 2008, Marcus Goldman, un joven escritor, visita a su mentor —Harry Quebert, autor de una aclamada novela—, y descubre que éste tuvo una relación secre","Thriller, Fiction, Mystery, Crime, France"
+En el Camino,Jack Kerouac,Jukarin,https://www.goodreads.com/book/show/316495,https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1515791622i/316495.jpg,3.61,364,"Con el paso del tiempo, En el camino , un libro que fue la biblia y el manifiesto de la generación beat, se ha convertido en una «novela de culto» y en un clásico de la literatura norteamericana. Con un inconfundible estilo bop , que consiguió para Kerouac el título de «heredero de Charlie Parker», en esta novela se narran los viajes enloquecidos, a bordo de Cadillacs prestados y Dodges desvencijados, de Dean Moriarty el mítico hipster, el héroe de todos los beatniks, «un demente, un ángel, un p","Classics, Fiction, Travel, Literature, Novels"
+El Gatopardo,Giuseppe Tomassi de Lampedusa,Jukarin,https://www.goodreads.com/book/show/1144829,https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1181385684i/1144829.jpg,4.01,288,"El gatopardo vio la luz en 1958, un ano despues de la muerte de su autor, con un exito inmediato entre el publico y la critica. Admirada por unos por denunciar los privilegios de la aristocracia ante el resurgir del mundo moderno, reconocida por otros por su singular valor artistico; conocida por todos en la deslumbrante version cinematografica de Visconti, con un enfoque critico y nostalgico, la obra de lampedusa nos presenta una epoca de la historia politica y social de ltalia.","Fiction, Classics, Historical Fiction, Italy, Italian Literature"
+Assur,Francisco Narla,Jukarin,https://www.goodreads.com/book/show/16160828-assur,https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1353398852i/16160828.jpg,4.04,960,"Año del Señor 968. Atraídos por las riquezas de los reinos cristianos de la península ibérica, una flota de terribles guerreros nórdicos amenaza la floreciente Compostela, baluarte dela Iglesiay la corona. A su paso solo queda desolación. Y a medida que remontan los ríos con sus rápidos drekar, buscando su presa, tras ellos dejan aldeas devastadas y cenizas humeantes. Como Outeiro, el pequeño pueblo en el que vive Assur, un muchacho al que, después de la trágica muerte de sus padres, no le queda","Historical Fiction, Medieval, Historical, Spain"
+El maestro y Margarita,Mijail Bulgákov,Jukarin,https://www.goodreads.com/book/show/29810516,https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1459926688i/29810516.jpg,4.28,520,"Publicada por Alianza Editorial en 1968, “El maestro y Margarita”, novela que reveló póstumamente el genio de Mijaíl Bulgákov (1891-1940), es una de las novelas más relevantes del siglo XX. En esta sátira genial de la sociedad soviética, con su población hambrienta, sus burócratas estúpidos, sus aterrados funcionarios y sus corruptos artistas, el Diablo, acompañado de una extravagante corte, llega a Moscú e irrumpe en las mediocres vidas de sus habitantes, desencadenando toda una serie de peripe","Fiction, Fantasy, Russia, Russian Literature, Magical Realism"
+Narciso y Goldmundo,Herman Hesse,Jukarin,https://www.goodreads.com/book/show/100795.Narciso_y_Goldmundo,https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1171469770i/100795.jpg,4.22,287,"Narciso y Goldmundo' (originalmente, en alemán, 'Narziß und Goldmund') es una novela del premio nobel alemán Hermann Hesse, escrita en 1930. Se trata de una novela de ""conciliación"" de antagonismos. Los dos personajes protagónicos de la misma, Narciso y Goldmundo, siguen, cada uno, sus propios caminos, atraviesan —el uno y el otro— innumerables desventuras y descubrimientos. Sus puntos de vista respectivos sobre el mundo, sus cosmovisiones, bosquejan en el inicio trayectorias marcadamente diver","Fiction, Classics, Philosophy, German Literature, Literature"
+Marco el romano,Mika Waltari,Jukarin,https://www.goodreads.com/book/show/24435407,https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1420955388i/24435407.jpg,4.05,375,"Marco el romano es uno de los más célebres frescos históricos que nos legó Mika Waltari. En la novela se reproduce con intensidad y colorido el mundo judeorromano del siglo I, donde no podía faltar la figuara de Jesús y sus primeros seguidores. El protagonista al que alude el título es inicialmente un típico romano de la época, de vida licenciosa y costumbres disipadas, pero del contacto con los apóstoles surgirá un nuevo Marco. El recorrido de Marco por el mundo conocido de la época es una fasc","Historical Fiction, Fiction, Religion, Historical, Finnish Literature"
+Sumision,Michel Houellebecq,tokeh,https://www.goodreads.com/book/show/25293873-sumisi-n,https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1428173791i/25293873.jpg,3.65,288,"Francia, en un futuro próximo. A las puertas de las elecciones presidenciales de 2022. Los partidos tradicionales se han hundido en las encuestas y Mohammed Ben Abbes, carismático líder de una nueva formación islamista moderada, derrota con el apoyo de los socialistas y de la derecha a la candidata del Frente Nacional en la segunda vuelta. François, un profesor universitario hastiado de la docencia y de su vida sexual, que a sus cuarenta años se había resignado a una vida aburrida pero sosegada,","Fiction, France, Novels, Politics, Contemporary"
+Factótum,Charles Bukowski,tokeh,https://www.goodreads.com/book/show/3017419,https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1350419304i/3017419.jpg,3.92,184,"Em Factótum, segundo romance de Charles Bukowski, publicado em 1975, encontramos mais uma vez Henry Chinaski, alter ego do autor, protagonista de vários dos seus livros e um dos mais célebres anti-heróis da literatura americana. Durante a Segunda Guerra Mundial, o loser Henry (que reaparece mais tarde em Misto-quente) é considerado “inapto para o serviço militar” e não consegue entrar para o exército. Assim, enquanto os Estados Unidos se unem em torno da guerra e os homens alistados são vistos c","Fiction, Classics, Novels, Literature, American"
+Estoy mucho mejor,David Foenkinos,tokeh,https://www.goodreads.com/book/show/72675037,https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1677894444i/72675037.jpg,3.58,336,"A veces la vida pesa demasiado. Eso es lo que le pasa al protagonista de esta novela, que un día despierta con un dolor de espalda insoportable. Después de consultar a toda clase de especialistas, descubre que no hay terapia capaz de ayudarlo. Ha llegado el momento de tomar las riendas de su vida. Y es que su espalda está llena de nudos; cada uno de los momentos tristes que ha vivido parece haberse atrincherado en ella para siempre. David Foenkinos nos muestra cómo un suceso aparentemente negati","France, Fiction, French Literature, Novels, Roman"
+Momentos estelares de la humanidad,Stefan Zweig,tokeh,https://www.goodreads.com/book/show/30810399,https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1467191218i/30810399.jpg,4.24,389,"Momentos estelares de la humanidad es un libro de pasajes de historia novelados escrita por Stefan Zweig (Viena 1881- Petrópolis 1942) en 1927, titulada originalmente Sternstunden der Menschheit. Se compone de los siguientes relatos históricos, precedidos de un prólogo del autor: -Cicerón. 15 de marzo de 44 antes de Cristo. -La conquista de Bizancio. 29 de mayo de 1453. -Huida hacia la inmortalidad: El descubrimiento del océano Pacífico. 25 de septiembre de 1513. -La resurrección de Georg Friedr","History, Nonfiction, Classics, Short Stories, German Literature"
+Solenoide,Mircea Cărtărescu,Ensorcelor,https://www.goodreads.com/book/show/35850901-solenoide,https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1507269750i/35850901.jpg,4.25,800,"Por las páginas de Solenoide se perciben los ecos de Borges, Pynchon, Swift y Kafka, resonancias que recorren las entradas del diario de un escritor cuya carrera ha naufragado y decidió refugiarse en un puesto de profesor de rumano en un instituto. Un día compra una casa con forma de barco, ideada por el inventor de un solenoide, que contiene una extraña máquina: un sillón de dentista equipado con un tablero de mandos. Es en esa etapa cuando entabla una relación más estrecha con una profesora, q","Fiction, Romania, Romanian Literature, Literature, Novels"
+Theodoros,Mircea Cărtărescu,Ensorcelor,https://www.goodreads.com/book/show/214506420-theodoros,https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1718866833i/214506420.jpg,4.37,644,"Un ejercicio de pura libertad literaria, una obra torrencial, libérrima, exuberante, inclasificable. Una novela épica que va desde lo realista hasta lo fantasmagórico. Tudor es el hijo menor de dos sirvientes de la corte de un gran boyardo de la atrasada Valaquia. Desde su nacimiento, la ambición parece guiar cada uno de sus pasos, y en su arduo ascenso al poder no dudará en dejar su camino sembrado de cadáveres. En su historia se cruzan el rey Salomón, la reina de Saba, el bisabuelo de John Len","Historical Fiction, Fiction, Romanian Literature, Romania, Historical"
+Billy Summers,Stephen King,Mac77,https://www.goodreads.com/book/show/56852407-billy-summers,https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1618151020i/56852407.jpg,4.19,517,"Billy Summers is a man in a room with a gun. He’s a killer for hire and the best in the business. But he’ll do the job only if the target is a truly bad guy. And now Billy wants out. But first there is one last hit. Billy is among the best snipers in the world, a decorated Iraq war vet, a Houdini when it comes to vanishing after the job is done. So what could possibly go wrong? How about everything...","Fiction, Thriller, Horror, Mystery, Crime"
+El cuento de la criada,Margaret Atwood,Mac77,https://www.goodreads.com/book/show/50519414,https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1579222042i/50519414.jpg,4.22,336,"Las criadas sólo vestimos de rojo: el color de la sangre es lo que nos define. Defred es Criada en Gilead, una república donde a las mujeres se les prohíbe trabajar, leer y entablar amistades. Sirve en el hogar del Comandante y su Esposa, y en el nuevo orden social tiene un único cometido: una vez al mes, tumbarse boca arriba y rezar para que el Comandante la deje embarazada, porque, en una época en que apenas nacen niños, Defred y las demás Criadas valen en la medida en que son capaces de engen","Graphic Novels, Dystopia, Fiction, Comics, Feminism"
+El subastador,Joan Samson,Mac77,https://www.goodreads.com/book/show/222539225-el-subastador,https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1740362674i/222539225.jpg,3.76,345,"Una obra maestra del terror de los años setenta. En el aislado pueblo de granjeros de Harlowe (Nuevo Hampshire), donde la vida apenas si ha cambiado desde hace varias décadas, John Moore y su esposa Mim trabajan la tierra que ha pertenecido a su familia durante generaciones. Pero tan pronto como el carismático Perly Dunsmore llega a Harlowe y empieza a solicitar donaciones para sus subastas, el pueblo empieza a sufrir una lenta y siniestra transformación. A medida que el subastador ejecuta su ho","Horror, Fiction, Thriller, Classics, Audiobook"
+Proyecto Hail Mary,Andy Weir,Pizzelio,https://www.goodreads.com/book/show/57776601,https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1618790924i/57776601.jpg,4.5,583,"Ryland Grace es el único superviviente en una misión desesperada. Es la última oportunidad y, si fracasa, la humanidad y la Tierra misma perecerán. Claro que, de momento, él no lo sabe. Ni siquiera puede recordar su propio nombre, y mucho menos la naturaleza de su misión o cómo llevarla a cabo. Lo único que sabe es que ha estado en coma inducido durante mucho mucho tiempo. Acaba de despertar y se encuentra a millones de kilómetros de su hogar, sin más compañía que la de dos cadáveres. Muertos su","Science Fiction, Fiction, Audiobook, Book Club, Fantasy"
+Nunca te pares,Phil Knight,Pizzelio,https://www.goodreads.com/book/show/62314586-nunca-te-pares,https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1662441138i/62314586.jpg,4.46,432,"In this candid and riveting memoir, for the first time ever, Nike founder and CEO Phil Knight shares the inside story of the company’s early days as an intrepid start-up and its evolution into one of the world’s most iconic, game-changing, and profitable brands. In 1962, fresh out of business school, Phil Knight borrowed $50 from his father and created a company with a simple mission: import high-quality, low-cost athletic shoes from Japan. Selling the shoes from the trunk of his lime green Plym","Business, Biography, Nonfiction, Memoir, Audiobook"
+Cuento de navidad,Charles Dickens,Pizzelio,https://www.goodreads.com/book/show/43366979-cuento-de-navidad,https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1545865849i/43366979.jpg,3.8,184,"Ebenezer Scrooge es un viejo agrio, avaro y cruel que no cree en la generosidad, el buen humor y el cariño, sólo en los negocios y el dinero. Pero todo cambia cuando una noche, la víspera de Navidad, recibe la visita de un espectro conocido y los espíritus de las Navidades pasadas, presentes y futuras... El clásico navideño de Dickens en una nueva edición con las ilustraciones en color de Quentin Blake, el célebre ilustrador de Roald Dahl, y traducción íntegra. ¡Una preciosa y divertida versión ","Fiction, Christmas, Short Stories, Classics, Literature"
+¡Guardias! ¡Guardias!,Terry Pratchett,KarlosWins,https://www.goodreads.com/book/show/6725527-guardias-guardias,https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1358275116i/6725527.jpg,4.34,395,"La ciudad de Ankh-Morpork está gobernada por un Patricio, Lord Vetinari, que ha legalizado los asesinatos, los robos, la mendicidad y la prostitución para tenerlos controlados. El Gremio de Asesinos y el de Ladrones reciben una cuota de asesinatos y robos 'razonables', y el sistema funciona con normalidad. Excepto para la Guardia Nocturna, que se ha visto reducida a tres hombres: el capitán Sam Vimes, el sargento Colon y el cabo Nobby Nobbs. La institución está degradada y envilecida. Por otra p","Fantasy, Fiction, Humor, Comedy, Audiobook"
+La maldición de la sangre,M.L. Wang,KarlosWins,https://www.goodreads.com/book/show/223198107,https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1735843917i/223198107.jpg,4.37,510,"Durante veinte años, Sciona ha dedicado cada momento de su vida al estudio de la magia, impulsada por el loco deseo de lograr lo imposible: convertirse en la primera mujer en ser admitida en el Alto Magisterio de la Universidad de Magia e Industria.​ Cuando Sciona por fin hace realidad su ambición y se convierte en una alta maga, descubre que sus desafíos apenas han comenzado. Sus nuevos colegas están decididos a hacerla sentir incómoda y, en lugar de un asistente de laboratorio calificado, le a","Fantasy, Dark Academia, Fiction, Audiobook, Adult"
+Los diablos,Joe Abercrombie,KarlosWins,https://www.goodreads.com/book/show/224550978-los-diablos,https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1738304805i/224550978.jpg,4.29,870,"Las gestas más gloriosas a veces requieren de actos impíos. El hermano Díaz tiene una cita en la Ciudad Santa, donde cree que lo recompensarán con una cómoda posición en la Iglesia. Pero resulta que su nuevo rebaño está compuesto por asesinos contumaces, horrorosos practicantes de lo arcano y auténticos monstruos. En esta nueva misión, todos tendrán que tomar las medidas más sangrientas si quieren alcanzar sus justos fines. Los elfos acechan en nuestras fronteras, ávidos de nuestra carne, mientr","Fantasy, Horror, Fiction, Audiobook, Historical Fiction"
+Fundación,Isaac Asimov,KarlosWins,https://www.goodreads.com/book/show/56568007-fundaci-n,https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1722433987i/56568007.jpg,4.17,199,"El primer gran Imperio Galáctico, gobernado desde la ciudad de Trántor, comienza a mostrar los síntomas de la decadencia. Hari Seldon, psicólogo y matemático, es el único hombre que prevé el derrumbamiento del Imperio y decide emplear la ciencia psicohistórica para reducir al mínimo el período de barbarie que precederá a la consolidación del siguiente gran Imperio Galáctico. En un pequeño planeta del extremo de la Galaxia crea la Fundación, germen de este Segundo Imperio que, según las previsiones de Hari Seldon, debería consolidarse en el plazo de un milenio...","Science Fiction, Fiction, Science Fiction Fantasy, Fantasy, Classics, Space Opera, Novels, Space"
+Libre: El desafío de crecer en el fin de la historia,Lea Ypi,Arle,https://www.goodreads.com/book/show/123452204-libre,https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1738506718i/123452204.jpg,4.3,328,"Un deslumbrante retrato personal, histórico y político del derrumbe del estalinismo en Albania y la turbulenta llegada de la democracia. Cuando era una niña, con apenas once años, Lea Ypi fue testigo del fin del mundo. Al menos del fin de un mundo. En 1990 el régimen comunista de Albania, el último bastión del estalinismo en Europa, se desplomó. Ella, adoctrinada en la escuela, no entendía por qué se derribaban las estatuas de Stalin y Hoxha, pero con los monumentos cayeron también los secretos ","Nonfiction, Memoir, History, Biography, Politics"
+Viaje al fin de la noche,Louis-Ferdinand Celine,Arle,https://www.goodreads.com/book/show/246591.Viaje_al_fin_de_la_noche,https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1371200570i/246591.jpg,4.18,573,"Con Viaje al fin de la noche , Céline se situó en una posición de privilegio en las letras francesas, de la que ninguna consideración extraliteraria lograría desbancarlo. La prosa amarga y quebradiza de Céline, su característico ritmo acelerado, el lirismos descarnado con que construyó a sus personajes o la altiva mueca con que contempló la existencia con claves indispensables para comprender la literatura europea y latinoamericana actual. Ferdinand Bardamu, el protagonista de esta historia, es ","Fiction, France, Literature, French Literature, Novels"
+Arrancad las semillas fusilad a los niños,Kenzaburō Ōe,Arle,https://www.goodreads.com/book/show/73761.Arrancad_las_semillas_fusilad_a_los_ni_os,https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1701248212i/73761.jpg,3.81,192,"Arrancad las semillas, fusilad a los niños se sitúa en el Japón de la II Guerra Mundial. Al ser evacuado un reformatorio, un grupo de muchachos, conformado por el narrador, su hermano menor y algunos de sus amigos, va a parar a un pueblo remoto de montaña, cuyo alcalde mantiene la filosofía de que el mal debe ser cortado de raíz, «desde la semilla». Sus actividades y actitudes pronto hacen que sean temidos y detestados por los campesinos. Cuando se declara una epidemia, los habitantes del pueblo","Fiction, Japan, Japanese Literature, Asia, Historical Fiction"
+Ébano,Ryszard Kapuściński,Arle,https://www.goodreads.com/book/show/48734875-bano,https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1574172742i/48734875.jpg,4.39,352,"Ébano no es un libro más sobre África: es un fresco inmenso desde África. Para escribirlo Kapuściński no visitó el continente: se mudó a él, y esa mudanza le cambió para siempre. A las orillas de los caminos de tierra roja se fijó en todo lo que un «enviado especial» pasa por alto: las prisas de la descolonización atropellada; la marcha incesante y con lo puesto del gentío; los retablos profundamente humanos que una y otra vez se arman y desarman en las cunetas de la Historia. Sus crónicas a pie","Africa, Nonfiction, Travel, History, Journalism"
+Estación Once,Emily St. John Mandel,legi0nx,https://www.goodreads.com/book/show/28445890-estaci-n-once,https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1451893643i/28445890.jpg,4.07,376,"Un inesperado virus mortal acaba con la humanidad tal y como la conocemos: ya no quedan trenes que unan los lugares, ni internet que nos permita conocer el mundo, ni siquiera ciudades en las que vivir, solo quedan asentamientos hostiles al visitante ocasional. En este desolador panorama un pequeño grupo de actores y músicos tienen una iniciativa sorprendente: crear la Sinfonía Viajera, con el fin de mantener vivo un resquicio de humanidad. Pero en este libro nada es fácil y pronto este rescoldo ","Fiction, Science Fiction, Dystopia, Book Club, Post Apocalyptic"
+La Sombra del Viento,Carlos Ruiz Zafón,legi0nx,https://www.goodreads.com/book/show/3328617-la-sombra-del-viento,https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1211297281i/3328617.jpg,4.3,576,"Un amanecer de 1945 un muchacho es conducido por su padre a un misterioso lugar oculto en el corazón de la ciudad vieja: El Cementerio de los Libros Olvidados. Allí, Daniel Sempere encuentra un libro maldito que cambiará el rumbo de su vida y le arrastrará a un laberinto de intrigas y secretos enterrados en el alma oscura de la ciudad. La Sombra del Viento es un misterio literario ambientado en la Barcelona de la primera mitad del siglo XX, desde los últimos esplendores del Modernismo a las tini","Fiction, Historical Fiction, Mystery, Fantasy, Book Club"
+Neverwhere,Neil Gaiman,legi0nx,https://www.goodreads.com/book/show/25864273-neverwhere,https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1438975296i/25864273.jpg,4.16,384,"Tienes entre tus manos la última edición de la oscura e hipnótica novela de Neil Gaiman, publicada por primera vez en 1996, y que anunció la llegada de un gran talento que pronto se convirtió en una de las voces fundamentales del género fantástico. Esta nueva edición reconcilia y reinstaura las distintas versiones de la novela que fueron escritas por Gaiman, a la que se añade un gran número de escenas que fueron eliminadas en ediciones anteriores, así como una carta a sus lectores en castellano ","Fantasy, Fiction, Urban Fantasy, Audiobook, Science Fiction Fantasy"
+Los renglones torcidos de Dios,Torcuato Luca de Tena,Schwartz,https://www.goodreads.com/book/show/67006.Los_renglones_torcidos_de_Dios?from_search=true&from_srp=true&qid=tOqYOoXSYk&rank=1,https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1311892366i/67006.jpg,4.21,512,"Torcuato Luca de Tena, periodista y escritor de gran prestigio, se ha convertido en uno de los autores más importantes de nuestro país, con cientos de miles de ejemplares vendidos de todas sus obras.Los renglones torcidos de DiosAlice Gould es ingresada en un sanatorio mental. En su delirio, cree ser una investigadora privada a cargo de un equipo de detectives dedicados a esclarecer complicados casos. Según una carta de su médico particular, la realidad es su paranoica obsesión es atentar contra la vida de su marido. La extrema inteligencia de esta mujer y su actitud aparentemente normal confundirán a los médicos hasta el punto de no saber a ciencia cierta si Alice ha sido ingresada injustamente o en realidad padece un grave y peligroso trastorno psicológico.","Thriller, Fiction, Spanish Literature, Classics, Mystery, Drama, Novels"
+Forastero en tierra extraña,Robert Heinlein,Schwartz,https://www.goodreads.com/book/show/19309603-forastero-en-tierra-extra-a,https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1446108807i/19309603.jpg,3.92,880,"Objeto de escándalo tras su publicación, libro de cabecera de la cultura hippie, biblia de Charles Manson y sus seguidores, Forastero en tierra extraña es la novela más polémica e iconclasta del género de ciencia ficción. Humano por parte de padres, marciano por nacimiento y educación, Valentine Michael Smith llega a la Tierra como un auténtico forastero. Pesa a su ascendencia terrestre, Smith piensa y siente como un marciano y no tiene nada en común con los seres humanos. Su peripecia en nuestr","Science Fiction, Fiction, Classics, Science Fiction Fantasy, Fantasy"
+El nombre del mundo es Bosque,Ursula K. Le Guin,Schwartz,https://www.goodreads.com/book/show/1812744.El_nombre_del_mundo_es_Bosque_Ciclo_Hainish_5_,https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1188681720i/1812744.jpg,4.06,164,"Nueva Tahití es un planeta cubierto de bosque y habitado por humanoides (seres humanos evolucionados a partir de una antigua colonización humana). El objetivo comercial de la colonia humana (yumana) es la exportación de madera, muy valiosa en la Tierra, y que pese a estar todavía en sus inicios, ya ha provocado una deforestación completa de parte de una de las grandes islas del planeta...","Science Fiction, Fiction, Fantasy, Classics, Speculative Fiction"
+Los Asquerosos,Santiago Lorenzo,Schwartz,https://www.goodreads.com/book/show/41587567-los-asquerosos,https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1560440743i/41587567.jpg,3.81,221,"Manuel acuchilla a un policía antidisturbios que quería pegarle. Huye. Se esconde en una aldea abandonada. Sobrevive de libros Austral, vegetales de los alrededores, una pequeña compra en el Lidl que le envía su tío. Y se da cuenta de que cuanto menos tiene, menos necesita. Un thriller estático, una versión de Robinson Crusoe ambientada en la España vacía, una redefinición del concepto ""austeridad"". Una historia que nos hace plantearnos si los únicos sanos son los que saben que esta sociedad está enferma. Santiago Lorenzo ha escrito su novela más rabiosamente política, lírica y hermosa.","Fiction, Humor, Spanish Literature, Novels, Spain"
+Nada,Carmen Laforet,Schwartz,https://www.goodreads.com/book/show/5354128-nada,https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1328618911i/5354128.jpg,3.84,304,"Andrea llega a Barcelona para estudiar Letras. Sus ilusiones chocan, inmediatamente, con el ambiente de tension y emociones violentas que reina en casa de su abuela. Andrea relata el contraste entre este sordido microcosmos familiar -poblado de seres extranos y apasionantes- y la fragil cordialidad de sus relaciones universitarias, coentradas en la bella y luminosa Ena. Finalmente los dos mundos convergen en un dialogo dramatico. Comparada por la critica con Cumbres borrascosas, Nada destaca tan","Fiction, Classics, Spanish Literature, Spain, Historical Fiction"
+Mil soles espléndidos,Khaled Hosseini,Megulia,https://www.goodreads.com/book/show/19104920-mil-soles-espl-ndidos,https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1386018130i/19104920.jpg,4.45,361,"Superando con creces el rotundo éxito de Cometas en el cielo —más de seis millones de ejemplares vendidos en treinta idiomas— la segunda novela de Khaled Hosseini saltó de inmediato al primer puesto en todos los países donde se ha publicado. Nueva demostración del asombroso instinto de gran narrador de que goza el autor, el libro cuenta la conmovedora historia de amistad entre dos mujeres afganas de orígenes muy dispares, cuyos destinos se entrelazan por obra del azar y de las convulsiones que h","Fiction, Historical Fiction, Book Club, Contemporary, Historical"
+Tomates verdes fritos,Fannie Flagg,Megulia,https://www.goodreads.com/book/show/11917389-tomates-verdes-fritos,https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1309545568i/11917389.jpg,4.28,432,"Evelyn Couch vive una existencia gris. Es una mujer de mediana edad, acomplejada y totalmente frustrada con todo lo que la rodea. Sin embargo, la manera de ver el mundo que tiene una persona puede cambiar cuando menos se lo espera. En una visita al asilo donde reside la madre de su marido, Evelyn conoce a la anciana Ninny Threadgoode, que le empieza a explicar cosas de un pequeño pueblo llamado Whistle Stop, cuya vida giró un tiempo en torno a un café. De pronto, a Evelyn se le abre una luminosa","Fiction, Historical Fiction, Classics, LGBT, Queer"
+Extraños Eones,Emilio Bueso,Megulia,https://www.goodreads.com/book/show/19149893-extra-os-eones,https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1563813244i/19149893.jpg,3.93,288,"""La ciudad de los muertos"" de El Cairo no es un barrio cualquiera, sino el cementerio más grande del planeta, un colosal océano de huesos en el que viven cientos de niños abandonados y en el que acaba de instalarse el emisario de unas fuerzas más antiguas que el hombre, las arenas del desierto y las órbitas caprichosas que trazan los astros en sus ciclos de locura. Esta es la historia de un plan para arrasar el mundo, de una llave de plata escondida en una tumba de Barcelona, de un viaje en coch",Horror
+Solaris,Stanislaw Lem,Dabeeef,https://www.goodreads.com/book/show/11253835-solaris,https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1304170200i/11253835.jpg,3.99,292,"Impedimenta se complace en presentar, por primera vez en traducción directa del polaco, Solaris , la mítica novela que consagró a Stanisław Lem como autor de culto. Un texto hoy en día considerado un clásico sin paliativos de la literatura moderna. Kris Kelvin acaba de llegar a Solaris. Su misión es esclarecer los problemas de conducta de los tres tripulantes de la única estación de observación situada en el planeta. Solaris es un lugar peculiar: no existe la tierra firme, únicamente un extenso ","Science Fiction, Fiction, Classics, Polish Literature, Audiobook"
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
+    <style>
+        .sortable-ghost {
+            opacity: 0.4;
+            background: #c8ebfb;
+        }
+        .sortable-chosen {
+            cursor: grabbing;
+        }
+        .rank-banner {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .rank-gold { background-color: #ffd700; color: #4a2b00; border-color: #e6c300; }
+        .rank-silver { background-color: #c0c0c0; color: #2d3748; border-color: #adadad; }
+        .rank-bronze { background-color: #cd7f32; color: white; border-color: #b8722c; }
+        
+        .top-5-slot {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .top-5-slot:hover {
+            transform: translateY(-2px);
+        }
+        
+        .top-5-slot.filled {
+            cursor: grab;
+        }
+        
+        .top-5-slot.filled:active {
+            cursor: grabbing;
+        }
+        
+        .rank-number {
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-['Inter'] text-gray-800">
+    <div class="container mx-auto p-4 md:p-8 max-w-7xl">
+        <header class="text-center mb-8">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900">Club de Lectura MV</h1>
+            <p class="text-lg text-gray-600 mt-2">Selecciona tus 5 libros favoritos y ordénalos según tu preferencia.</p>
+        </header>
+
+        <!-- Top 5 Selection Area -->
+        <section class="mb-8 bg-white rounded-lg shadow-lg p-6">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-2xl font-bold text-gray-900">Mi Top 5</h2>
+                <div class="text-sm text-gray-600">
+                    <span id="selection-counter">0/5 libros elegidos</span>
+                </div>
+            </div>
+            
+            <div id="top-5-container" class="flex gap-4 mb-4 min-h-[180px] justify-center">
+                <div class="top-5-slot flex-1 max-w-[140px] border-2 border-dashed border-gray-300 rounded-lg p-3 text-center bg-gray-50" data-position="1">
+                    <div class="text-6xl text-gray-400 mb-2">1</div>
+                    <div class="text-sm text-gray-500">Selecciona tu libro favorito</div>
+                </div>
+                <div class="top-5-slot flex-1 max-w-[140px] border-2 border-dashed border-gray-300 rounded-lg p-3 text-center bg-gray-50" data-position="2">
+                    <div class="text-6xl text-gray-400 mb-2">2</div>
+                    <div class="text-sm text-gray-500">Segundo favorito</div>
+                </div>
+                <div class="top-5-slot flex-1 max-w-[140px] border-2 border-dashed border-gray-300 rounded-lg p-3 text-center bg-gray-50" data-position="3">
+                    <div class="text-6xl text-gray-400 mb-2">3</div>
+                    <div class="text-sm text-gray-500">Tercer favorito</div>
+                </div>
+                <div class="top-5-slot flex-1 max-w-[140px] border-2 border-dashed border-gray-300 rounded-lg p-3 text-center bg-gray-50" data-position="4">
+                    <div class="text-6xl text-gray-400 mb-2">4</div>
+                    <div class="text-sm text-gray-500">Cuarto favorito</div>
+                </div>
+                <div class="top-5-slot flex-1 max-w-[140px] border-2 border-dashed border-gray-300 rounded-lg p-3 text-center bg-gray-50" data-position="5">
+                    <div class="text-6xl text-gray-400 mb-2">5</div>
+                    <div class="text-sm text-gray-500">Quinto favorito</div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button id="copy-button" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-transform transform hover:scale-105 disabled:bg-gray-400 disabled:cursor-not-allowed disabled:hover:scale-100" disabled>
+                    Copiar mi Top 5
+                </button>
+                <div id="feedback-message" class="mt-2 text-green-600 font-semibold h-6"></div>
+            </div>
+        </section>
+
+        <!-- Search and Filter Section -->
+        <section class="mb-6 bg-white rounded-lg shadow-md p-4">
+            <div class="flex flex-col md:flex-row gap-4 items-center">
+                <div class="flex-grow">
+                    <input type="text" id="search-input" placeholder="Buscar por título o autor..." class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+                <div class="flex gap-2">
+                    <select id="genre-filter" class="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="">Todos los géneros</option>
+                    </select>
+                    <button id="clear-filters" class="px-4 py-2 bg-gray-500 hover:bg-gray-600 text-white rounded-lg text-sm">
+                        Limpiar
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <main id="book-list" class="space-y-4">
+        </main>
+
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const bookListContainer = document.getElementById('book-list');
+            const copyButton = document.getElementById('copy-button');
+            const feedbackMessage = document.getElementById('feedback-message');
+            
+            let selectedBooks = [];
+            let allBooks = [];
+
+            const csvData = document.getElementById('csv-data').textContent;
+
+            Papa.parse(csvData.trim(), {
+                header: true,
+                skipEmptyLines: true,
+                complete: (results) => {
+                    // Clean up all fields by trimming whitespace
+                    const cleanedData = results.data.map(book => {
+                        const cleanedBook = {};
+                        Object.keys(book).forEach(key => {
+                            cleanedBook[key] = book[key] ? book[key].toString().trim() : '';
+                        });
+                        return cleanedBook;
+                    });
+                    createBookCards(cleanedData);
+                }
+            });
+
+            function createBookCards(books) {
+                allBooks = books;
+                populateGenreFilter(books);
+                books.forEach((book, index) => {
+                    const card = document.createElement('div');
+                    card.className = 'relative bg-white rounded-lg shadow-md p-4 flex items-center transition-all duration-300 hover:shadow-xl mb-4';
+                    card.dataset.title = book.titulo;
+                    card.dataset.author = book.autor;
+                    card.dataset.user = book.user || '';
+                    card.dataset.index = index;
+                    
+                    const imageUrl = book.goodreads_image_url || book.portada_url || 'https://placehold.co/120x180/e2e8f0/334155?text=Sin%0APortada';
+                    const rating = book.goodreads_rating ? parseFloat(book.goodreads_rating).toFixed(1) : 'N/A';
+                    const pages = book.goodreads_number_of_pages || 'N/A';
+                    const genres = book.goodreads_genres ? book.goodreads_genres.split(',').slice(0, 3).join(', ') : 'Sin géneros';
+                    const synopsis = book.goodreads_synopsis ? (book.goodreads_synopsis.length > 200 ? book.goodreads_synopsis.substring(0, 200) + '...' : book.goodreads_synopsis) : 'Sin sinopsis disponible';
+                    
+                    card.innerHTML = `
+                        <div class="flex-shrink-0 mr-4">
+                            <a href="${book.goodreads_url}" target="_blank" rel="noopener noreferrer">
+                                <img src="${imageUrl}" alt="Portada de ${book.titulo}" class="w-20 h-30 object-cover rounded-md shadow-sm" onerror="this.onerror=null;this.src='https://placehold.co/120x180/e2e8f0/334155?text=Sin%0APortada';">
+                            </a>
+                        </div>
+                        <div class="flex-grow">
+                            <div class="flex justify-between items-start mb-2">
+                                <div class="flex-grow">
+                                    <h3 class="font-bold text-lg text-gray-900 leading-tight mb-1">
+                                        <a href="${book.goodreads_url}" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600">
+                                            ${book.titulo}
+                                        </a>
+                                    </h3>
+                                    <p class="text-md text-gray-600 mb-1">${book.autor}</p>
+                                    ${book.user ? `<p class="text-sm text-blue-600 font-medium">Propuesto por: ${book.user}</p>` : ''}
+                                </div>
+                                <div class="text-right flex-shrink-0 ml-4">
+                                    <div class="flex items-center mb-1">
+                                        <span class="text-yellow-500 mr-1">⭐</span>
+                                        <span class="text-sm font-medium">${rating}</span>
+                                    </div>
+                                    <p class="text-xs text-gray-500">${pages} páginas</p>
+                                </div>
+                            </div>
+                            <p class="text-xs text-gray-500 mb-2">
+                                <strong>Géneros:</strong> ${genres}
+                            </p>
+                            <p class="text-sm text-gray-700 mb-3">${synopsis}</p>
+                            <div class="flex justify-end">
+                                <button class="select-book-btn bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors" data-book-index="${index}">
+                                    Elegir libro
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    bookListContainer.appendChild(card);
+                });
+
+                // Add event listeners for select buttons
+                document.querySelectorAll('.select-book-btn').forEach(btn => {
+                    btn.addEventListener('click', handleBookSelection);
+                });
+
+                // Make top 5 container sortable
+                new Sortable(document.getElementById('top-5-container'), {
+                    animation: 150,
+                    ghostClass: 'sortable-ghost',
+                    chosenClass: 'sortable-chosen',
+                    onEnd: (evt) => {
+                        // Reorder the selectedBooks array based on the new positions
+                        const movedBook = selectedBooks[evt.oldIndex];
+                        selectedBooks.splice(evt.oldIndex, 1);
+                        selectedBooks.splice(evt.newIndex, 0, movedBook);
+                        updateTop5Display();
+                    }
+                });
+                
+                // Add search and filter event listeners
+                setupSearchAndFilters();
+            }
+            
+            function populateGenreFilter(books) {
+                const allGenres = new Set();
+                books.forEach(book => {
+                    if (book.goodreads_genres) {
+                        book.goodreads_genres.split(',').forEach(genre => {
+                            allGenres.add(genre.trim());
+                        });
+                    }
+                });
+                
+                const genreFilter = document.getElementById('genre-filter');
+                const sortedGenres = Array.from(allGenres).sort();
+                
+                sortedGenres.forEach(genre => {
+                    const option = document.createElement('option');
+                    option.value = genre;
+                    option.textContent = genre;
+                    genreFilter.appendChild(option);
+                });
+            }
+            
+            function setupSearchAndFilters() {
+                const searchInput = document.getElementById('search-input');
+                const genreFilter = document.getElementById('genre-filter');
+                const clearFilters = document.getElementById('clear-filters');
+                
+                searchInput.addEventListener('input', filterBooks);
+                genreFilter.addEventListener('change', filterBooks);
+                clearFilters.addEventListener('click', () => {
+                    searchInput.value = '';
+                    genreFilter.value = '';
+                    filterBooks();
+                });
+            }
+            
+            function filterBooks() {
+                const searchTerm = document.getElementById('search-input').value.toLowerCase();
+                const selectedGenre = document.getElementById('genre-filter').value;
+                const bookCards = document.querySelectorAll('#book-list > div');
+                
+                bookCards.forEach(card => {
+                    const title = card.dataset.title.toLowerCase();
+                    const author = card.dataset.author.toLowerCase();
+                    const bookIndex = parseInt(card.dataset.index);
+                    const book = allBooks[bookIndex];
+                    
+                    const matchesSearch = title.includes(searchTerm) || author.includes(searchTerm);
+                    const matchesGenre = !selectedGenre || (book.goodreads_genres && book.goodreads_genres.includes(selectedGenre));
+                    
+                    if (matchesSearch && matchesGenre) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+
+            function handleBookSelection(event) {
+                const bookIndex = parseInt(event.target.dataset.bookIndex);
+                const book = allBooks[bookIndex];
+                
+                // Check if book is already selected
+                if (selectedBooks.find(b => b.index === bookIndex)) {
+                    return;
+                }
+                
+                // Check if we already have 5 books
+                if (selectedBooks.length >= 5) {
+                    feedbackMessage.textContent = '¡Ya has seleccionado 5 libros! Quita alguno para elegir otro.';
+                    feedbackMessage.className = 'mt-2 text-red-600 font-semibold h-6';
+                    setTimeout(() => {
+                        feedbackMessage.textContent = '';
+                        feedbackMessage.className = 'mt-2 text-green-600 font-semibold h-6';
+                    }, 3000);
+                    return;
+                }
+                
+                // Add book to selected list
+                selectedBooks.push({ ...book, index: bookIndex });
+                
+                // Update UI
+                updateBookCardState(bookIndex, true);
+                updateTop5Display();
+                updateSelectionCounter();
+                updateCopyButton();
+            }
+            
+            function removeBookFromSelection(bookIndex) {
+                selectedBooks = selectedBooks.filter(book => book.index !== bookIndex);
+                updateBookCardState(bookIndex, false);
+                updateTop5Display();
+                updateSelectionCounter();
+                updateCopyButton();
+            }
+            
+            function updateBookCardState(bookIndex, isSelected) {
+                const card = document.querySelector(`[data-index="${bookIndex}"]`);
+                const button = card.querySelector('.select-book-btn');
+                
+                if (isSelected) {
+                    card.classList.add('opacity-50', 'bg-gray-100');
+                    button.textContent = '✓ Elegido';
+                    button.classList.remove('bg-green-600', 'hover:bg-green-700');
+                    button.classList.add('bg-gray-500', 'cursor-not-allowed');
+                    button.disabled = true;
+                } else {
+                    card.classList.remove('opacity-50', 'bg-gray-100');
+                    button.textContent = 'Elegir libro';
+                    button.classList.remove('bg-gray-500', 'cursor-not-allowed');
+                    button.classList.add('bg-green-600', 'hover:bg-green-700');
+                    button.disabled = false;
+                }
+            }
+            
+            function updateTop5Display() {
+                const container = document.getElementById('top-5-container');
+                container.innerHTML = '';
+                
+                // Create 5 slots
+                for (let i = 0; i < 5; i++) {
+                    const slot = document.createElement('div');
+                    slot.className = 'top-5-slot flex-1 max-w-[140px] border-2 border-dashed rounded-lg p-3 text-center transition-all duration-300';
+                    slot.dataset.position = i + 1;
+                    
+                    if (selectedBooks[i]) {
+                        const book = selectedBooks[i];
+                        const imageUrl = book.goodreads_image_url || book.portada_url || 'https://placehold.co/120x180/e2e8f0/334155?text=Sin%0APortada';
+                        
+                        slot.innerHTML = `
+                            <div class="relative cursor-grab">
+                                <img src="${imageUrl}" alt="${book.titulo}" class="w-full h-24 object-cover rounded-md mb-2" onerror="this.onerror=null;this.src='https://placehold.co/120x180/e2e8f0/334155?text=Sin%0APortada';">
+                                <button class="remove-book-btn absolute -top-2 -right-2 bg-red-500 hover:bg-red-600 text-white rounded-full w-6 h-6 text-xs" data-book-index="${book.index}">
+                                    ×
+                                </button>
+                                <div class="rank-number absolute -top-2 -left-2 bg-blue-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold">
+                                    ${i + 1}
+                                </div>
+                            </div>
+                            <div class="text-xs font-semibold text-gray-900 leading-tight mt-1">${book.titulo.length > 18 ? book.titulo.substring(0, 18) + '...' : book.titulo}</div>
+                            <div class="text-xs text-gray-600">${book.autor.length > 15 ? book.autor.substring(0, 15) + '...' : book.autor}</div>
+                        `;
+                        
+                        slot.classList.add('border-green-500', 'bg-green-50', 'filled');
+                    } else {
+                        slot.innerHTML = `
+                            <div class="text-6xl text-gray-400 mb-2">${i + 1}</div>
+                            <div class="text-sm text-gray-500">${getSlotText(i)}</div>
+                        `;
+                        slot.classList.add('border-gray-300', 'bg-gray-50');
+                    }
+                    
+                    container.appendChild(slot);
+                }
+                
+                // Add event listeners for remove buttons
+                document.querySelectorAll('.remove-book-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const bookIndex = parseInt(btn.dataset.bookIndex);
+                        removeBookFromSelection(bookIndex);
+                    });
+                });
+            }
+            
+            function getSlotText(index) {
+                const texts = [
+                    'Selecciona tu libro favorito',
+                    'Segundo favorito', 
+                    'Tercer favorito',
+                    'Cuarto favorito',
+                    'Quinto favorito'
+                ];
+                return texts[index] || '';
+            }
+            
+            function updateSelectionCounter() {
+                document.getElementById('selection-counter').textContent = `${selectedBooks.length}/5 libros elegidos`;
+            }
+            
+            function updateCopyButton() {
+                const copyButton = document.getElementById('copy-button');
+                copyButton.disabled = selectedBooks.length < 5;
+            }
+
+            copyButton.addEventListener('click', () => {
+                if (selectedBooks.length === 5) {
+                    let clipboardText = '';
+                    
+                    selectedBooks.forEach((book, index) => {
+                        const points = 5 - index;
+                        clipboardText += `${book.titulo}, ${book.autor} - ${points} puntos\n`;
+                    });
+
+                    navigator.clipboard.writeText(clipboardText.trim()).then(() => {
+                        feedbackMessage.textContent = '¡Top 5 copiado al portapapeles!';
+                        feedbackMessage.className = 'mt-2 text-green-600 font-semibold h-6';
+                        setTimeout(() => {
+                            feedbackMessage.textContent = '';
+                        }, 3000);
+                    }).catch(err => {
+                        console.error('Error al copiar: ', err);
+                        feedbackMessage.textContent = 'Error al intentar copiar.';
+                        feedbackMessage.className = 'mt-2 text-red-600 font-semibold h-6';
+                        setTimeout(() => {
+                            feedbackMessage.textContent = '';
+                            feedbackMessage.className = 'mt-2 text-green-600 font-semibold h-6';
+                        }, 3000);
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
